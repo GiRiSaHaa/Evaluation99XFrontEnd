@@ -1,0 +1,38 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-warning" data-toggle="modal" [attr.data-target]="'#' + cartItem?.itemId">
+    Buy More. Save More.
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="{{cartItem?.itemId}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">{{ cartItem.name }}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="max-height:400px; overflow-y: auto;">
+                <table class="table table-bordered" style="text-align: center;">
+                    <thead>
+                        <tr>
+                            <th style="text-align: center;">Qty</th>
+                            <th style="text-align: center;">Cost</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let map of priceListArray">
+                            <td [ngStyle]="{'background-color':  (map.qty % cartItem.unitPerCarton==0) ? 'cyan' : '' }">{{map.qty}}</td>
+                            <td [ngStyle]="{'background-color':  (map.qty % cartItem.unitPerCarton==0) ? 'cyan' : '' }">{{map.cost}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,68 @@
+<div class="container bootstrap snippets bootdey">
+    <div class="">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-info panel-shadow">
+                    <div class="panel-heading">
+                        <h4>
+                            <img class="img-circle img-thumbnail" src="https://bootdey.com/img/Content/user_3.jpg">
+                            SaKi's Cart
+                        </h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 20%;">Products</th>
+                                        <th>Description</th>
+                                        <th style="width: 15%;">Qty</th>
+                                        <th>Unit Price</th>
+                                        <th>Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let cartItem of cartItemList">
+                                        <td><img src="https://via.placeholder.com/200x100/67A967/000000"
+                                                class="img-cart"></td>
+                                        <td>
+                                            <strong>{{ cartItem.name }}</strong>
+                                            <p></p>
+                                            <app-price-info [cartItem]=cartItem></app-price-info>
+                                        </td>
+                                        <td>
+                                            <div class="form-inline">
+                                                <input style="width: 60px;" (keyup.enter)="onEnter($event , cartItem.itemId )"
+                                                    class="form-control" type="number" value={{cartItem.qty}} size="1">
+                                                &nbsp;<a href="#" class="btn btn-primary"><i
+                                                        class="fa fa-trash-o"></i></a>
+                                            </div>
+                                        </td>
+                                        <td>${{ cartItem.unitPrice }}</td>
+                                        <td>${{ cartItem.total }}</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td colspan="6">&nbsp;</td>
+                                    </tr>
+                                    <!-- <tr>
+                                        <td colspan="4" class="text-right">You saved</td>
+                                        <td>$86.00</td>
+                                    </tr> -->
+                                    <tr>
+                                        <td colspan="4" class="text-right"><strong>Total</strong></td>
+                                        <td>${{total}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <a routerLink="/products" class="btn btn-success"><i class="fas fa-angle-double-left"></i>&nbsp;Continue Shopping</a>
+                <a routerLink="/checkout" class="btn btn-primary pull-right">Checkout&nbsp;<i
+                        class="fas fa-angle-double-right"></i></a>
+                <p></p>
+            </div>
+        </div>
+    </div>
+</div>
