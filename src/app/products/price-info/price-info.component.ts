@@ -21,7 +21,7 @@ export class PriceInfoComponent implements OnInit {
 
   ngOnInit(): void {
     // Simple GET request
-    this.http.get<any>('http://localhost:8080/products/calculate/price-list/' + this.cartItem.itemId + '/' + this.priceListLimit).subscribe(data => {
+    this.http.get<any>('http://localhost:8080/price/calculate/price-list/' + this.cartItem.itemId + '/' + this.priceListLimit).subscribe(data => {
       this.priceListArray = data;
     })
 

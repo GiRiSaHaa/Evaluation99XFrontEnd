@@ -47,7 +47,7 @@ export class CartComponent implements OnInit {
     this.cartItemList[item-1].qty = event.target.valueAsNumber;
 
     // Simple POST request with a JSON body and response type <any>
-    this.http.get<any>('http://localhost:8080/products/calculate/'+item+'/'+this.cartItemList[item-1].qty).subscribe(data => {
+    this.http.get<any>('http://localhost:8080/price/calculate/'+item+'/'+this.cartItemList[item-1].qty).subscribe(data => {
       this.cartItemList[item-1].total = data;
       this.total = getTotal(this.cartItemList);
     })   
