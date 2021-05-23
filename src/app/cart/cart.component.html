@@ -26,28 +26,40 @@
                                         <td><img src="https://via.placeholder.com/200x100/67A967/000000"
                                                 class="img-cart"></td>
                                         <td>
-                                            <strong>{{ cartItem.name }}</strong>
-                                            <p></p>
-                                            <app-price-info [cartItem]=cartItem></app-price-info>
+                                            <div class="form-inline">
+                                                <strong>{{ cartItem.name }}</strong> 
+                                                <app-price-info [cartItem]=cartItem class="pull-right"></app-price-info>
+                                                <p></p>
+                                                <p style="color: red; font-style: italic; font-size: 11px;">- If you purchase single units, the price is acquired using the carton price multiplied by an increase of 30% (1.3). (to compensate for manual labor)</p>
+                                                <p style="color: red; font-style: italic; font-size: 11px;">- If you purchase 3 cartons or more, you will receive a 10% discount off the carton price.</p>
+                                                <p style="color: red; font-style: italic; font-size: 11px;">- Unit per carton: {{cartItem.unitPerCarton}}</p>
+                                            </div>
                                         </td>
                                         <td>
                                             <div class="form-inline">
-                                                <input style="width: 60px;" (keyup.enter)="onEnter($event , cartItem.itemId )"
+                                                <input style="width: 60px;"
+                                                    (keyup.enter)="onEnter($event , cartItem.itemId )"
                                                     class="form-control" type="number" value={{cartItem.qty}} size="1">
-                                                &nbsp;<a href="#" class="btn btn-primary"><i
-                                                        class="fa fa-trash-o"></i></a>
+                                                &nbsp;
+                                                <!-- <a href="#" class="btn btn-primary"><i class="fa fa-trash-o"></i></a> -->
                                             </div>
                                         </td>
                                         <td>${{ cartItem.unitPrice }}</td>
                                         <td>${{ cartItem.total }}</td>
                                     </tr>
-                                    
+
                                     <tr>
                                         <td colspan="6">&nbsp;</td>
                                     </tr>
                                     <!-- <tr>
-                                        <td colspan="4" class="text-right">You saved</td>
-                                        <td>$86.00</td>
+                                        <td colspan="5">
+                                            <strong><i>Summary:</i></strong>
+                                            <p>You have purched:</p>
+                                            <ul>
+                                                <li>hgh</li>
+                                            </ul>
+                                            <p>You Saved:</p>
+                                        </td>
                                     </tr> -->
                                     <tr>
                                         <td colspan="4" class="text-right"><strong>Total</strong></td>
@@ -58,7 +70,8 @@
                         </div>
                     </div>
                 </div>
-                <a routerLink="/products" class="btn btn-success"><i class="fas fa-angle-double-left"></i>&nbsp;Continue Shopping</a>
+                <a routerLink="/products" class="btn btn-success"><i class="fas fa-angle-double-left"></i>&nbsp;Continue
+                    Shopping</a>
                 <a routerLink="/checkout" class="btn btn-primary pull-right">Checkout&nbsp;<i
                         class="fas fa-angle-double-right"></i></a>
                 <p></p>

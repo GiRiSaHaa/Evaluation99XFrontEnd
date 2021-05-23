@@ -1,5 +1,5 @@
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-warning" data-toggle="modal" [attr.data-target]="'#' + cartItem?.itemId">
+<button type="button" class="btn btn-warning btn-shake" data-toggle="modal" [attr.data-target]="'#' + cartItem?.itemId">
     Buy More. Save More.
 </button>
 
@@ -24,8 +24,8 @@
                     </thead>
                     <tbody>
                         <tr *ngFor="let map of priceListArray">
-                            <td [ngStyle]="{'background-color':  (map.qty % cartItem.unitPerCarton==0) ? 'cyan' : '' }">{{map.qty}}</td>
-                            <td [ngStyle]="{'background-color':  (map.qty % cartItem.unitPerCarton==0) ? 'cyan' : '' }">{{map.cost}}</td>
+                            <td [ngStyle]="{'background-color':  (map.qty % cartItem.unitPerCarton==0) ? 'cadetblue' : '' }">{{map.qty}} {{ (map.qty % cartItem.unitPerCarton==0) ? '('+(map.qty / cartItem.unitPerCarton)+' carton/s)' : '' }}</td>
+                            <td [ngStyle]="{'background-color':  (map.qty % cartItem.unitPerCarton==0) ? 'cadetblue' : '' }">{{map.cost}} {{ (map.qty % cartItem.unitPerCarton==0 && map.qty / cartItem.unitPerCarton>=3) ? '(10% Discount)':''}}</td>
                         </tr>
                     </tbody>
                 </table>
